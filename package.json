@@ -2,9 +2,9 @@
   "name": "serve",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon index.ts",
+    "dev": "nodemon src/index.ts",
     "start": "nodemon dist/index.js"
   },
   "author": "",
