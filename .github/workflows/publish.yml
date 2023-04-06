@@ -18,17 +18,6 @@ jobs:
             git fetch origin master
             git reset --hard origin/master
             export PATH=$PATH:/root/.nvm/versions/node/v16.11.1/bin
+            npm run tsc
             pm2 kill
             pm2 start dist/index.js
-#  pm2-configuration:
-#    #runner, This job will be running in runner with Ubuntu Server latest version.
-#    runs-on: ubuntu-latest
-#    needs: deploy
-#    steps:
-#      - uses: actions/checkout@v3 #checkout code from repository, so we code downloaded in runner.
-#      - uses: actions/setup-node@v3 #setup nodejs in our runner
-#      - run: npm install
-#      - run: npm install pm2@latest -g #install pm2 global
-#      - run: pm2 kill
-#      #running pm2 in mode cluster and --watch set to auto restart if index.js have changes.
-#      - run: pm2 start dist/index.js
