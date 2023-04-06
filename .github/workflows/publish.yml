@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy and Build
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v3 #checkout code from repository, so we code downloaded in runner.
+      - uses: actions/setup-node@v3 #setup nodejs in our runner
+      - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}

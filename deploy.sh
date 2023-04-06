@@ -10,12 +10,11 @@ git reset --hard origin/master
 
 echo "Install app dependencies"
 sudo rm -rf node_modules package-lock.json
-sudo apt-get install npm pm2 -g
 sudo npm install
 
 echo "Build your app"
 sudo npm run tsc
 
 echo "Run new PM2 action"
-sudo cp /home/apps/eccosystem.json eccosystem.json
+sudo cp /home/apps eccosystem.json
 sudo pm2 start eccosystem.json
