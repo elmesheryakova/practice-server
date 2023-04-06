@@ -13,7 +13,6 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           debug: true
-          command_timeout: 20m
           script: |
             cd ${{ secrets.DIR }}
             git fetch origin master
