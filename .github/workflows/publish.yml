@@ -21,8 +21,4 @@ jobs:
             rm -rf docker/prod/nginx/conf.d/practice-server
             cp docker-compose.yml
             docker-compose up -d --build
-            chown www-data:www-data -R .
-            chmod -R 777 .
-            ./composer.sh
-            chmod -R 755 .
-            chmod -R 777 storage bootstrap/cache public/uploads
+
