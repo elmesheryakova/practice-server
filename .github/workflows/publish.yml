@@ -26,7 +26,6 @@ jobs:
       - uses: actions/setup-node@v3 #setup nodejs in our runner
       - run: npm install
       - run: npm install pm2@latest -g #install pm2 global
-      - run: npm run tsc
       - run: pm2 kill
       #running pm2 in mode cluster and --watch set to auto restart if index.js have changes.
       - run: pm2 start dist/index.js
