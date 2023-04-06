@@ -4,7 +4,7 @@ export type UsersType = {
 }
 export const db: DBType = {
   users: [
-    {id: 1, name: 'Marat'},
+    {id: 1, name: 'Yuliya'},
     {id: 2, name: 'Vitya'},
     {id: 3, name: 'Masha'},
     {id: 4, name: 'Vadim'}
