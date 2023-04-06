@@ -9,4 +9,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "dist/index.js"]
+CMD ["sh", "deploy.sh"]
