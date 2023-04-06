@@ -16,5 +16,5 @@ echo "Build your app"
 sudo npm run tsc
 
 echo "Run new PM2 action"
-sudo cp /home/apps eccosystem.json
+sudo cp /home/apps/eccosystem.json eccosystem.json
 sudo pm2 start eccosystem.json

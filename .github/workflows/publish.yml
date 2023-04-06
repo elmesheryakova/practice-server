@@ -6,8 +6,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 #checkout code from repository, so we code downloaded in runner.
-      - uses: actions/setup-node@v3 #setup nodejs in our runner
       - name: Deploy and Build
         uses: appleboy/ssh-action@master
         with:
