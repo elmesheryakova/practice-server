@@ -27,6 +27,7 @@ jobs:
             cd ${{ secrets.DIR }}
             git pull
             npm run tsc
+            docker-compose down
             docker-compose up -d
             pm2 restart index
             pm2 start dist/index.js
