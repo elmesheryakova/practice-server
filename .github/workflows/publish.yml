@@ -19,7 +19,7 @@ jobs:
       - name: Deploy and Build
         uses: appleboy/ssh-action@master
         with:
-          port: "8081"
+          port: 8081
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
