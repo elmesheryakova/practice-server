@@ -28,5 +28,5 @@ jobs:
       - name: convert form ts to js
         run: npm run tsc
       - run: npm install pm2@latest -g
-      - run: pm2 restart index
+      - run: pm2 restart all
       - run: pm2 start dist/index.js
