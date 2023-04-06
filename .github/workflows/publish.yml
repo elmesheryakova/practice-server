@@ -12,22 +12,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
-          debug: true
-          script: |
-            cd ${{ secrets.DIR }}
-            git fetch origin master
-            git reset --hard origin/master
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: npm install pm2@latest -g
-      - run: pm2 -V
-      - run: pm2 start dist/index.js
-#  pm2-configuration:
-#    runs-on: ubuntu-latest
-#    needs: deploy
-#    steps:
-#      - uses: actions/checkout@v3
-#      - uses: actions/setup-node@v3
-#      - run: npm install pm2@latest -g
-#      - run: pm2 -V
-#      - run: pm2 start dist/index.js
+          script: sh deploy.sh
+
