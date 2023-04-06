@@ -19,6 +19,7 @@ jobs:
       - name: Deploy and Build
         uses: appleboy/ssh-action@master
         with:
+          port: "8081"
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
@@ -26,9 +27,7 @@ jobs:
           command_timeout: 20m
           script: |
             cd ${{ secrets.DIR }}
-            git fetch origin master
+            git pull
             git reset --hard origin/master
-            rm -rf docker/prod/nginx/conf.d/practice-server
-            cp docker-compose.yml
             docker-compose up -d --build
 
