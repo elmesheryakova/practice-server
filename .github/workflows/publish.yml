@@ -1,17 +1,17 @@
-#name: Deploy
-#on:
-#  push:
-#    branches: [ master ]
-#jobs:
-#  deploy:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Deploy and Build
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER_NAME }}
-#          password: ${{ secrets.PASSWORD }}
-#          debug: true
-#          script: sh deploy.sh
+name: Deploy
+on:
+  push:
+    branches: [ master ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy and Build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          debug: true
+          script: sh deploy.sh
 
