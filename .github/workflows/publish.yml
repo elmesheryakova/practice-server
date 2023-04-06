@@ -18,7 +18,8 @@ jobs:
             git fetch origin master
             git reset --hard origin/master
             export PATH=$PATH:/root/.nvm/versions/node/v16.11.1/bin
-            pm2 list
+            pm2 kill
+            pm2 start dist/index.js
 #  pm2-configuration:
 #    #runner, This job will be running in runner with Ubuntu Server latest version.
 #    runs-on: ubuntu-latest
