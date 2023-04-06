@@ -5,7 +5,8 @@ echo "Jump to app folder"
 cd /home/apps/practice-server
 
 echo "Update app from Git"
-git pull
+git fetch origin master
+git reset --hard origin/master
 
 echo "Install app dependencies"
 sudo rm -rf node_modules package-lock.json
