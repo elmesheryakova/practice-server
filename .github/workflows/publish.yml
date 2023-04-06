@@ -18,6 +18,5 @@ jobs:
             git fetch origin master
             git reset --hard origin/master
             export PATH=$PATH:/root/.nvm/versions/node/v16.11.1/bin
-            npm run tsc
             pm2 kill
             pm2 start dist/index.js
