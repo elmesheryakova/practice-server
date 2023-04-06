@@ -26,8 +26,6 @@ jobs:
           script: |
             cd ${{ secrets.DIR }}
             git pull
-      - name: Convert ts to js
-        run: npm run tsc
       - name: Restart server
         run: pm2 restart index
       - name: Start server
