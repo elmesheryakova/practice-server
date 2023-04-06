@@ -26,7 +26,12 @@ jobs:
           script: |
             cd ${{ secrets.DIR }}
             git pull
-      - name: Restart server
-        run: pm2 restart index
-      - name: Start server
-        run: pm2 start dist/index.js
+            npm install -g pm2
+      - name: Install node_modules
+        run: npm install -g pm2
+      - name: convert form ts to js
+        run: npm run tsc
+#      - name: Restart server
+#        run: pm2 restart index
+#      - name: Start server
+#        run: pm2 start dist/index.js
