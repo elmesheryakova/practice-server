@@ -27,4 +27,3 @@ jobs:
         run: npm ci
       - name: convert form ts to js
         run: npm run tsc
-      - run: sudo pm2 start dist/index.js
