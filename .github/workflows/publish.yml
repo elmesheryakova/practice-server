@@ -1,0 +1,28 @@
+name: Deploy
+on:
+  push:
+    branches: [ master ]
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy and Build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          key: ${{ secrets.KEY }}
+          debug: true
+          command_timeout: 20m
+          script: |
+            cd ${{ secrets.DIR }}
+            git fetch origin master
+            git reset --hard origin/master
+            rm -rf docker/prod/nginx/conf.d/practice-server
+            cp docker-compose.yml
+            docker-compose up -d --build
+            chown www-data:www-data -R .
+            chmod -R 777 .
+            ./composer.sh
+            chmod -R 755 .
+            chmod -R 777 storage bootstrap/cache public/uploads
