@@ -13,5 +13,5 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           debug: true
-          script: ./deploy.sh
+          script: deploy.sh
 
