@@ -25,5 +25,4 @@ jobs:
       - uses: actions/setup-node@v3
       - run: npm install pm2@latest -g
       - run: pm2 -V
-      - run: pm2 delete all
       - run: pm2 start dist/index.js --watch -i max
