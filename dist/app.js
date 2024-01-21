@@ -7,14 +7,14 @@ exports.jsonBodyMiddleware = exports.app = void 0;
 const express_1 = __importDefault(require("express"));
 const db_1 = require("./db/db");
 const users_1 = require("./Routes/users");
-// import bodyParser from "body-parser";
-// import cors from 'cors'
+const body_parser_1 = __importDefault(require("body-parser"));
+const cors_1 = __importDefault(require("cors"));
 // import jwt from 'jsonwebtoken'
 exports.app = (0, express_1.default)();
 exports.jsonBodyMiddleware = express_1.default.json();
 exports.app.use(exports.jsonBodyMiddleware);
 exports.app.use('/users', (0, users_1.getUsersRouter)(db_1.db));
-// app.use(bodyParser.json(), cors())
+exports.app.use(body_parser_1.default.json(), (0, cors_1.default)());
 //
 // app.post('/login', (req, res) => {
 //   const token = jwt.sign({user: 'user name', admin: true}, 'PRACTICE_KEY', {expiresIn: '5d'})
