@@ -9,7 +9,7 @@ export const jsonBodyMiddleware = express.json();
 app.use(jsonBodyMiddleware);
 
 app.use(cors({
-    origin: ['http://localhost:5173/', 'http://practice-m.ru']
+    origin: ['http://localhost:5173', 'http://practice-m.ru']
 }))
 
 
