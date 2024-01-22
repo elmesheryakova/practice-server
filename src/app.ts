@@ -8,13 +8,9 @@ export const jsonBodyMiddleware = express.json();
 
 app.use(jsonBodyMiddleware);
 
-const corsOptions = {
-    origin: ["http://localhost", "http://practice-m.ru"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: ['http://localhost:5173/', 'http://practice-m.ru']
+}))
 
 
 app.use('/users', getUsersRouter(db));

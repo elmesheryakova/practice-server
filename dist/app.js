@@ -11,10 +11,7 @@ const cors_1 = __importDefault(require("cors"));
 exports.app = (0, express_1.default)();
 exports.jsonBodyMiddleware = express_1.default.json();
 exports.app.use(exports.jsonBodyMiddleware);
-const corsOptions = {
-    origin: ["http://localhost", "http://practice-m.ru"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-};
-exports.app.use((0, cors_1.default)(corsOptions));
+exports.app.use((0, cors_1.default)({
+    origin: ['http://localhost:5173/', 'http://practice-m.ru']
+}));
 exports.app.use('/users', (0, users_1.getUsersRouter)(db_1.db));
