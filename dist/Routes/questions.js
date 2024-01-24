@@ -20,7 +20,7 @@ const getQuestionsRouter = (db) => {
             }
         }
         else {
-            const allQuestions = db.senior.map((theme) => theme.questions).flat();
+            const allQuestions = db.senior.reduce((acc, theme) => acc.concat(theme.questions), []);
             res.json(allQuestions);
         }
     });

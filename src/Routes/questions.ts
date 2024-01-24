@@ -1,6 +1,6 @@
 import express, { Response } from "express";
 import { RequestWithQuery } from "../types";
-import { ThemeType } from "../db/db";
+import { ThemeType, QuestionType } from "../db/db";
 
 export const getQuestionsRouter = (db: { senior: ThemeType[] }) => {
   const router = express.Router();
@@ -17,7 +17,7 @@ export const getQuestionsRouter = (db: { senior: ThemeType[] }) => {
         res.status(404).json({ error: "Тема не найдена" });
       }
     } else {
-      const allQuestions = db.senior.map((theme) => theme.questions).flat();
+      const allQuestions = db.senior.reduce((acc, theme) => acc.concat(theme.questions), [] as QuestionType[]);
       res.json(allQuestions);
     }
   });
