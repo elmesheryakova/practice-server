@@ -1,6 +1,6 @@
 import express, { Response } from "express";
 import { RequestWithQuery } from "../types";
-import {db, ThemeType} from "../db/db";
+import { ThemeType, QuestionType, db } from "../db/db";
 
 export const getQuestionsRouter = (db: { senior: ThemeType[] }) => {
   const router = express.Router();
@@ -17,7 +17,9 @@ export const getQuestionsRouter = (db: { senior: ThemeType[] }) => {
         res.status(404).json({ error: "Тема не найдена" });
       }
     } else {
-      res.json(db.senior.flatMap((theme) => theme.questions));
+      res.json(db.senior.flatMap((theme) => theme.questions || []));
+      // Если у вас есть возможность, проверьте, что db.senior тоже является массивом,
+      // иначе выше указанный код должен обрабатывать случай, когда db.senior не является массивом.
     }
   });
 
