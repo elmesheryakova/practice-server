@@ -11,7 +11,7 @@ const getQuestionsRouter = (db) => {
     router.get("/", (req, res) => {
         const { themeId } = req.query;
         if (themeId) {
-            const theme = db.senior.find((t) => t.id === Number(themeId));
+            const theme = db.senior.find((t) => t.id === String(themeId));
             if (theme) {
                 res.json(theme);
             }
