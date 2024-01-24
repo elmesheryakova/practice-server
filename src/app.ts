@@ -11,8 +11,6 @@ app.use(jsonBodyMiddleware);
 app.use(bodyParser.json());
 app.use(cors());
 
-// Используем фабрику для создания маршрута с передачей базы данных
 const questionsRouter = getQuestionsRouter(db);
 
-// Регистрируем маршрут
 app.use('/questions', questionsRouter);
