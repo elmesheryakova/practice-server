@@ -20,7 +20,7 @@ const getQuestionsRouter = (db) => {
             }
         }
         else {
-            res.json(db.senior.flatMap((theme) => theme.questions));
+            res.json(db.senior.flatMap((theme) => theme.questions || []));
         }
     });
     return router;

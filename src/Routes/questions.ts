@@ -18,8 +18,6 @@ export const getQuestionsRouter = (db: { senior: ThemeType[] }) => {
       }
     } else {
       res.json(db.senior.flatMap((theme) => theme.questions || []));
-      // Если у вас есть возможность, проверьте, что db.senior тоже является массивом,
-      // иначе выше указанный код должен обрабатывать случай, когда db.senior не является массивом.
     }
   });
 
