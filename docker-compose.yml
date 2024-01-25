@@ -4,9 +4,8 @@ services:
   web:
     build: .
     container_name: server
-    command: node dist/index.js
+    command: bash -c "pkill node; node dist/index.js"
     ports:
       - "8081:8081"
     volumes:
       - ./:/app
-
